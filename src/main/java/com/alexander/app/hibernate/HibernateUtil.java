@@ -1,7 +1,7 @@
 package com.alexander.app.hibernate;
 
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
-
 import org.hibernate.cfg.Configuration;
 
 
@@ -9,15 +9,17 @@ public class HibernateUtil {
 
     private static SessionFactory factory;
 
-    static{
-        try{
+    static {
+        try {
             factory = new Configuration()
                     .configure("hibernate.cfg.xml")
                     .buildSessionFactory();
-        }catch(Exception e){
-            e.printStackTrace();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
         }
     }
 
-    public static SessionFactory getSessionFactory() { return factory; }
+    public static SessionFactory getSessionFactory() {
+        return factory;
+    }
 }

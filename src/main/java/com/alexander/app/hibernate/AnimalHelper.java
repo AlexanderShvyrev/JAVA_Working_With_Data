@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class AnimalHelper {
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     public AnimalHelper(){
         sessionFactory = HibernateUtil.getSessionFactory();
